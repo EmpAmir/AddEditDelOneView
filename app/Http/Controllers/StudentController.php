@@ -24,7 +24,7 @@ class StudentController extends Controller
         $student->name = $request->name;
         $student->age = $request->age;
         $student->save();
-        return redirect(route('index'));
+        return redirect(route('index'))->with('status','Student Added Successfully');
     }
 
     public function edit($id)
@@ -45,12 +45,12 @@ class StudentController extends Controller
         $student->name = $request->name;
         $student->age = $request->age;
         $student->save();
-        return redirect(route('index'));
+        return redirect(route('index'))->with('status','Student Updated Successfully');
     }
 
     public function destroy($id)
     {
         Student::destroy($id);
-        return redirect(route('index'));
+        return redirect(route('index'))->with('status','Student Deleted Successfully');
     }
 }
